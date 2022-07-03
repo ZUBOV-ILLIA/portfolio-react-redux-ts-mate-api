@@ -10,3 +10,12 @@ export interface User {
   createdAt: string,
   updatedAt: string,
 }
+
+export interface State {
+  users: User[],
+}
+
+export interface Action {
+  type: string,
+  payload: any,
+}

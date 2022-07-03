@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { getUsers } from "../../api/users";
-import { User } from "../../react-app-env";
+// import { User } from "../../react-app-env";
+import { setUsersAction } from "../../store/actions";
+import { getUsersSelector } from "../../store/selectors";
 import './users.css';
 
 export const Users: React.FC = () => {
-  const [users, setUsers] = useState<User[] | null>(null);
+  const dispatch = useDispatch();
+  const users = useSelector(getUsersSelector);
 
   const getUsersFromServer = async () => {
     const response = await getUsers();
 
-    setUsers(response);
+    dispatch(setUsersAction(response));
   }
 
   useEffect(() => {
