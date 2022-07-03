@@ -33,7 +33,7 @@ export const Users: React.FC = () => {
   return (
     <>
       <h2>
-        Here is list of all users at Mate api
+        {`Here is the list of ${users ? users.length : 'all'} users at Mate api`}
       </h2>
 
       <table
@@ -82,7 +82,7 @@ export const Users: React.FC = () => {
                 key={user.id}
               >
                 <th
-                  className={`${!user.name ? 'no-data' : 'd'}`}
+                  className={`${!user.name && 'no-data'}`}
                 >
                   {user.name}
                 </th>
@@ -92,25 +92,25 @@ export const Users: React.FC = () => {
                 </td>
 
                 <td
-                  className={`${!user.email ? 'no-data' : 'd'}`}
+                  className={`${!user.email && 'no-data'}`}
                 >
                   {user.email}
                 </td>
 
                 <td
-                  className={`${!user.username ? 'no-data' : 'd'}`}
+                  className={`${!user.username && 'no-data'}`}
                 >
                   {user.username}
                 </td>
 
                 <td
-                  className={`${!user.phone ? 'no-data' : 'd'}`}
+                  className={`${!user.phone && 'no-data'}`}
                 >
                   {user.phone}
                 </td>
 
                 <td
-                  className={`${!user.website ? 'no-data' : 'd'}`}
+                  className={`${!user.website && 'no-data'}`}
                 >
                   {user.website}
                 </td>
